@@ -87,10 +87,88 @@ console.log("The factorial of " + number + " is: " + factorial(number));
   <!--Aayush Shah start-->
   <!--Avisek Start-->
       <li><strong>Write a PHP program to print the largest and smallest numbers among 10 elements of an array.</strong></li>
+      <div class="answer">
+    <p><strong>Answer:</strong></p>
+        <pre>
+        &lt;?php
+$numbers = array(12, 45, 67, 2, 89, 34, 22, 10, 99, 5);
+$max = max($numbers);
+$min = min($numbers);
+
+echo "Largest number: " . $max . "&lt;br&gt;";
+echo "Smallest number: " . $min;
+?&gt;
+        </pre>
+      </div>
+
+      
       <li><strong>Write a PHP program to sort the data of an array.</strong></li>
+      <div class="answer">
+    <p><strong>Answer:</strong></p>
+        <pre>
+          &lt;?php
+$data = array(34, 12, 56, 78, 1, 9, 3, 45);
+sort($data);
+
+echo "Sorted array: &lt;br&gt;";
+foreach ($data as $value) {
+    echo $value . " ";
+}
+?&gt;
+        </pre>
+      </div>
+
+    
       <li><strong>Write a PHP program to check if a string is a palindrome or not.</strong></li>
+      <div class="answer">
+    <p><strong>Answer:</strong></p>
+        <pre>
+          &lt;?php
+$str = "madam";
+$reversed = strrev($str);
+
+if ($str == $reversed) {
+    echo "$str is a palindrome.";
+} else {
+    echo "$str is not a palindrome.";
+}
+?&gt;
+        </pre>
+      </div>
+
+      
       <li><strong>How can you add JavaScript to an HTML page? Illustrate with the example.</strong></li>
+      <div class="answer">
+    <p><strong>Answer:</strong></p>
+        <p>JavaScript can be added to an HTML page using the <code>&lt;script&gt;</code> tag.</p>
+            <pre>
+              &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;JavaScript Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;script&gt;
+        alert('This is a JavaScript alert!');
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+      </div>
+
+
+        
       <li><strong>What is event handling in JavaScript?</strong></li>
+       <div class="answer">
+    <p><strong>Answer:</strong></p>
+ <p>Event handling in JavaScript is the process of executing code when specific events occur in a webpage, such as clicks, keypresses, or page loads. This is done using event listeners or event attributes like <code>onclick</code>.</p>
+     <p>Example:</p>
+            <pre>
+&lt;button onclick="alert('Button clicked!')"&gt;Click Me&lt;/button&gt;
+            </pre>
+       </div>
+         
   <!--Abhishek End-->
     </ol>
     <!-- Question List Ends -->
