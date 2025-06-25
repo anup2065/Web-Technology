@@ -46,77 +46,120 @@ console.log("The factorial of " + number + " is: " + factorial(number));
       <li><strong>What is PHP? Explain its uses and advantages.</strong></li>
   <!--Bhusan End-->
   <!--Areej Start-->
-      <strong>Write down the basic PHP syntax and an example of a PHP program.</strong>
+     <li>
+  <strong>Write down the basis PHP syntax and an example of a PHP program.</strong>
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+    <p>PHP syntax starts with <code>&lt;?php</code> and ends with <code>?&gt;</code>. Statements end with a semicolon <code>;</code>.</p>
+    <pre><code>&lt;?php
+  echo "Hello, World!";
+?&gt;</code></pre>
+    <p><strong>Output:</strong> Hello, World!</p>
+    <p><strong>Explanation:</strong> This is a basic PHP program that prints "Hello, World!" to the screen.</p>
+  </div>
+</li>
 
-<div class="answer"> <p><strong>Answer:</strong></p> <p>PHP (Hypertext Preprocessor) is a server-side scripting language. The basic PHP syntax starts with <code>&lt;?php</code> and ends with <code>?&gt;</code>.</p> <p><strong>PHP Code Example:</strong></p> <pre><code> &lt;?php echo "Hello, World!"; ?&gt; </code></pre> <p><strong>Output:</strong> Hello, World!</p> <p><strong>Explanation:</strong> The <code>echo</code> statement is used to print text in PHP. This simple program displays "Hello, World!".</p> </div>
-<strong>Explain the different operators used in PHP.</strong>
+<li>
+  <strong>Explain the different operators used in a PHP.</strong>
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+    <ul>
+      <li><strong>Arithmetic Operators:</strong> +, -, *, /, %</li>
+      <li><strong>Assignment Operators:</strong> =, +=, -=, *=, /=</li>
+      <li><strong>Comparison Operators:</strong> ==, !=, &gt;, &lt;, &gt;=, &lt;=</li>
+      <li><strong>Logical Operators:</strong> &amp;&amp;, ||, !</li>
+      <li><strong>String Operators:</strong> ., .=</li>
+      <li><strong>Increment/Decrement:</strong> ++, --</li>
+    </ul>
+  </div>
+</li>
 
-<div class="answer"> <p><strong>Answer:</strong></p> <p>PHP supports various types of operators. They are:</p> <ul> <li><strong>Arithmetic Operators:</strong> +, -, *, /, % (used for mathematical operations)</li> <li><strong>Assignment Operators:</strong> =, +=, -=, *=, etc. (used to assign values)</li> <li><strong>Comparison Operators:</strong> ==, !=, &gt;, &lt;, &gt;=, &lt;= (used to compare values)</li> <li><strong>Logical Operators:</strong> && (AND), || (OR), ! (NOT)</li> <li><strong>Increment/Decrement Operators:</strong> ++, --</li> <li><strong>String Operators:</strong> . (concatenation), .= (append)</li> </ul> </div>
-<strong>Write a PHP program to display the largest among three numbers.</strong>
+<li>
+  <strong>Write a PHP program to display the largest among three numbers.</strong>
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+    <pre><code>&lt;?php
+$a = 10;
+$b = 20;
+$c = 15;
 
-<div class="answer"> <p><strong>Answer:</strong></p> <pre><code> &lt;?php $a = 15; $b = 25; $c = 10;
-if ($a >= $b && $a >= $c) {
-echo "Largest number is: " . $a;
-} elseif ($b >= $a && $b >= $c) {
-echo "Largest number is: " . $b;
+if ($a &gt;= $b &amp;&amp; $a &gt;= $c) {
+  echo "Largest number is: $a";
+} elseif ($b &gt;= $a &amp;&amp; $b &gt;= $c) {
+  echo "Largest number is: $b";
 } else {
-echo "Largest number is: " . $c;
+  echo "Largest number is: $c";
 }
-?>
-</code></pre>
+?&gt;</code></pre>
+    <p><strong>Output:</strong> Largest number is: 20</p>
+    <p><strong>Explanation:</strong> It checks which among the three numbers is the greatest using <code>if...elseif...else</code>.</p>
+  </div>
+</li>
 
-<p><strong>Output:</strong> Largest number is: 25</p> <p><strong>Explanation:</strong> The <code>if...elseif...else</code> statement checks and compares the three numbers to find the largest one.</p> </div>
-<strong>What is Object-based programming? Explain different JavaScript objects.</strong>
+<li>
+  <strong>What is Object-based programming? Explain different JavaScript objects.</strong>
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+    <p>Object-based programming uses objects to represent data and functions. It does not support inheritance.</p>
+    <p><strong>Examples of JavaScript Objects:</strong></p>
+    <ul>
+      <li><strong>Array:</strong> Stores a list of values.</li>
+      <li><strong>Date:</strong> Handles dates and times.</li>
+      <li><strong>Math:</strong> Provides mathematical functions.</li>
+      <li><strong>String:</strong> Used to manipulate text.</li>
+      <li><strong>Object:</strong> A general container for key-value pairs.</li>
+    </ul>
+  </div>
+</li>
 
-<div class="answer"> <p><strong>Answer:</strong></p> <p>Object-based programming is a programming model based on the concept of "objects", which can contain data and functions. Unlike object-oriented programming, object-based languages do not support features like inheritance.</p> <p><strong>Common JavaScript Objects:</strong></p> <ul> <li><strong>Array:</strong> Used to store multiple values. Example: <code>let arr = [1, 2, 3];</code></li> <li><strong>Date:</strong> Used to handle dates and times. Example: <code>let today = new Date();</code></li> <li><strong>Math:</strong> Provides mathematical functions and constants. Example: <code>Math.sqrt(25);</code></li> <li><strong>String:</strong> Represents text data. Example: <code>let str = "Hello";</code></li> <li><strong>Object:</strong> General-purpose object to store key-value pairs. Example: <code>let person = {name: "Ram", age: 18};</code></li> </ul> </div>
-<strong>Write down the server-side script to create a database, connect with it, create a table and insert data in it.</strong>
+<li>
+  <strong>Write down the server-side script to create a database, connect with it, create a table and insert data in it.</strong>
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+    <pre><code>&lt;?php
+$conn = new mysqli("localhost", "root", "", "");
+$conn-&gt;query("CREATE DATABASE myDB");
 
-<div class="answer"> <p><strong>Answer:</strong></p> <p><strong>PHP Code:</strong></p> <pre><code> &lt;?php // Connect to MySQL server $conn = new mysqli("localhost", "root", "", "");
-// Create database
-$sql = "CREATE DATABASE myDB";
-$conn->query($sql);
-
-// Connect to the new database
 $conn = new mysqli("localhost", "root", "", "myDB");
+$conn-&gt;query("CREATE TABLE Students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT)");
 
-// Create table
-$sql = "CREATE TABLE Students (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(50),
-age INT
-)";
-$conn->query($sql);
+$conn-&gt;query("INSERT INTO Students (name, age) VALUES ('Anup', 18)");
+echo "Database, table, and record created.";
+$conn-&gt;close();
+?&gt;</code></pre>
+    <p><strong>Explanation:</strong> This script creates a database <code>myDB</code>, connects to it, creates a <code>Students</code> table, and inserts a record.</p>
+  </div>
+</li>
 
-// Insert data
-$sql = "INSERT INTO Students (name, age) VALUES ('Anup', 18)";
-$conn->query($sql);
+<li>
+  <strong>Write a JavaScript program to display the current day and time in the following format: Today is: Tuesday. The current time is: 10 PM: 30: 38</strong>
+  <div class="answer">
+    <p><strong>Answer:</strong></p>
+    <pre><code>
+function displayDateTime() {
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const now = new Date();
+  let day = days[now.getDay()];
+  let hour = now.getHours();
+  let minute = now.getMinutes();
+  let second = now.getSeconds();
+  let period = hour &gt;= 12 ? "PM" : "AM";
+  hour = hour % 12;
+  hour = hour ? hour : 12;
 
-echo "Database, table and data created successfully";
-$conn->close();
-?>
-</code></pre>
-
-<p><strong>Explanation:</strong> This script connects to MySQL, creates a database called <code>myDB</code>, then creates a table named <code>Students</code> and inserts a record into it.</p> </div>
-<strong>Write a JavaScript program to display the current day and time in the following format: Today is: Tuesday. The current time is: 10 PM: 30: 38</strong>
-
-<div class="answer"> <p><strong>Answer:</strong></p> <pre><code> function displayDateTime() { const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; const now = new Date();
-let day = days[now.getDay()];
-let hour = now.getHours();
-let minutes = now.getMinutes();
-let seconds = now.getSeconds();
-
-let period = hour >= 12 ? "PM" : "AM";
-hour = hour % 12;
-hour = hour ? hour : 12; // 0 should be 12
-
-console.log("Today is: " + day + ".");
-console.log("The current time is: " + hour + " " + period + ": " + minutes + ": " + seconds);
+  console.log("Today is: " + day);
+  console.log("The current time is: " + hour + " " + period + ": " + minute + ": " + second);
 }
 
 displayDateTime();
-</code></pre>
-
-<p><strong>Sample Output:</strong></p> <p>Today is: Tuesday. <br>The current time is: 10 PM: 30: 38</p> <p><strong>Explanation:</strong> The code uses the <code>Date</code> object to get current time and date, and formats it as required.</p> </div>
+    </code></pre>
+    <p><strong>Sample Output:</strong> Today is: Tuesday. The current time is: 10 PM: 30: 38</p>
+    <p><strong>Explanation:</strong> It gets the current date and time and formats it using JavaScript <code>Date</code> object.</p>
+  </div>
+</li>
   <!--Areej End-->
   <!--Diwash Start-->
       <li><strong>Write a PHP script to connect the MySQL database and demonstrate data insertion in table product (id, product_name, price, expire_date, company name).</strong></li>
