@@ -37,13 +37,227 @@ console.log("The factorial of " + number + " is: " + factorial(number));
 </li>
  <!--Bhusan Start-->
       <li><strong>How do you fetch data from database in PHP and display it in form? Describe.</strong>
-        <div class="answer">Test answer</div>
+        <div class="answer">
+          <p><strong>Answer:</strong></p>
+          <p>To fetch data from a database and display it in a form in PHP, you'll typically follow these steps:</p>
+          <ol>
+            <li>Connect to the database using PDO.</li>
+            <li>Query the database to retrieve the specific record(s) you want to display.</li>
+            <li>Display the form with values from the fetched data.</li>
+          </ol>
+          <body>
+    <section>
+        <h1>Database to Form Code Example</h1>
+
+        <!-- 1. Database Connection Code -->
+        <h2>1. Connect to Database (PDO)</h2>
+        <pre>
+    &lt;?php
+    $host = 'localhost';
+    $dbname = 'test_db';
+    $username = 'root';
+    $password = '';
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Connection failed: " . $e->getMessage());
+    }
+    ?&gt;
+    </pre>
+
+        <!-- 2. Database Query Code -->
+        <h2>2. Query Database for Record</h2>
+        <pre>
+    &lt;?php
+    $id = $_GET['id'] ?? 1;
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt->execute([$id]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        die("User not found");
+    }
+    ?&gt;
+    </pre>
+
+        <!-- 3. Form Display Code -->
+        <h2>3. Display Form with Fetched Data</h2>
+        <pre>
+    &lt;form method="post" action="update.php"&gt;
+        &lt;input type="hidden" name="id" value="&lt;?= htmlspecialchars($user['id']) ?&gt;"&gt;
+        
+        &lt;label&gt;Name: 
+            &lt;input type="text" name="name" value="&lt;?= htmlspecialchars($user['name']) ?&gt;"&gt;
+        &lt;/label&gt;&lt;br&gt;
+        
+        &lt;label&gt;Email: 
+            &lt;input type="email" name="email" value="&lt;?= htmlspecialchars($user['email']) ?&gt;"&gt;
+        &lt;/label&gt;&lt;br&gt;
+        
+        &lt;label&gt;Phone: 
+            &lt;input type="text" name="phone" value="&lt;?= htmlspecialchars($user['phone']) ?&gt;"&gt;
+        &lt;/label&gt;&lt;br&gt;
+        
+        &lt;button type="submit"&gt;Update&lt;/button&gt;
+    &lt;/form&gt;
+    </pre>
+          </section>
+        </div>
       </li>
-      <li><strong>Write short notes on Internet technology.</strong></li>
-      <li><strong>Differentiate between server-side and client-side scripting.</strong></li>
-      <li><strong>Explain different data types used in JavaScript.</strong></li>
-      <li><strong>What is JQuery? Write down its uses.</strong></li>
-      <li><strong>What is PHP? Explain its uses and advantages.</strong></li>
+      <li>
+        <strong>Write short notes on Internet technology.</strong>
+        <div class="answer">
+          <p><strong>Answer:</strong></p>
+          <p>Internet technology refers to the tools and infrastructure used to access, share, and exchange data over the internet. It includes protocols (like TCP/IP, HTTP), hardware (routers, servers), software (browsers, apps), and services (email, cloud storage, VoIP).</p>
+          <h2>Protocols</h2>
+          <p>Protocols are rules that define how data is transmitted and received. The most important among these are TCP/IP, which ensures data is properly broken into packets and reassembled at the destination, and HTTP/HTTPS, which manage how websites are loaded, with HTTPS adding a layer of security through encryption. FTP is another protocol used for transferring files across networks.</p>
+          
+          <h2>Hardware</h2>
+          <p>Hardware refers to physical components that form the infrastructure of the internet. This includes servers that host websites and data, routers and modems that direct and manage internet traffic, and the physical infrastructure like fiber-optic cables and satellites that carry signals worldwide. Without this hardware, digital communication would not be possible.</p>
+
+          <h2>Software</h2>
+          <p>Software are the programs that allow users to access and use the internet. Software like web browsers like Chrome and Firefox are used to access websites, while email clients help in sending and receiving messages. Various apps allow users to perform specific tasks such as video calling, chatting, or online transactions, making the internet more user-friendly and functional.</p>
+
+          <h2>Services</h2>
+          <p>Services provided through internet technology include email for instant communication, cloud storage that lets users store and access data remotely, and VoIP (Voice over Internet Protocol) which enables voice calls over the internet. These services have replaced many traditional communication and storage methods.</p>
+      
+      </li>
+
+      <li>
+        <strong>Differentiate between server-side and client-side scripting.</strong>
+        <div class="answer">
+          <p><strong>Answer:</strong></p>
+          <p>Scripting in web development refers to code that controls the behavior of a website. It is divided into client-side scripting, which runs in the user's browser, and server-side scripting, which runs on the web server.</p>
+          <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Client-side Scripting</th>
+                <th>Server-side Scripting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Executes in the user's browser</td>
+                <td>Executes on the web server</td>
+              </tr>
+              <tr>
+                <td>Faster response as it doesn't contact the server</td>
+                <td>Slower due to server interaction</td>
+              </tr>
+              <tr>
+                <td>Mainly used for UI behavior and validation</td>
+                <td>Used for database access, authentication, etc.</td>
+              </tr>
+              <tr>
+                <td>Languages: HTML, CSS, JavaScript</td>
+                <td>Languages: PHP, Python, Node.js, etc.</td>
+              </tr>
+              <tr>
+                <td>Source code is visible to the user</td>
+                <td>Code is hidden from the user</td>
+              </tr>
+              <tr>
+                <td>Less secure for sensitive operations</td>
+                <td>Suitable for handling secure data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <li>
+        <strong>Explain different data types used in JavaScript.</strong>
+        <div class="answer">
+          <p><strong>Answer:</strong></p>
+          <p>JavaScript supports various data types, mainly categorized into primitive and non-primitive (reference) types.</p>
+          <h2>Data Types in JavaScript</h2>
+
+          <h3>1. Primitive Data Types</h3>
+          <ul>
+            <li><strong>String:</strong> Represents textual data.<br>
+              Example: <code>"Hello"</code>, <code>'World'</code>
+            </li>
+            <li><strong>Number:</strong> Represents both integers and floating-point values.<br>
+              Example: <code>42</code>, <code>3.14</code>
+            </li>
+            <li><strong>Boolean:</strong> Logical type with values <code>true</code> or <code>false</code>.<br>
+              Example: <code>true</code>, <code>false</code>
+            </li>
+            <li><strong>Undefined:</strong> Assigned to variables that are declared but not initialized.<br>
+              Example: <code>let x;</code> (<code>x</code> is <code>undefined</code>)
+            </li>
+            <li><strong>Null:</strong> Represents intentional absence of any object value.<br>
+              Example: <code>let user = null;</code>
+            </li>
+            <li><strong>BigInt:</strong> Used for integers of arbitrary length.<br>
+              Example: <code>123456789012345678901234567890n</code>
+            </li>
+            <li><strong>Symbol:</strong> Unique and immutable primitive, often used as object property keys.<br>
+              Example: <code>let sym = Symbol("id");</code>
+            </li>
+          </ul>
+
+          <h3>2. Non-Primitive (Reference) Data Types</h3>
+          <ul>
+            <li><strong>Object:</strong> Stores collections of key–value pairs.<br>
+              Example: <code>{ name: "Alice", age: 25 }</code>
+            </li>
+            <li><strong>Array:</strong> Special type of object for ordered collections.<br>
+              Example: <code>[10, 20, 30]</code>
+            </li>
+            <li><strong>Function:</strong> Callable object that encapsulates code.<br>
+              Example: <code>function greet() { return "Hello"; }</code>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <strong>What is JQuery? Write down its uses.</strong>
+        <div class="answer"></div>
+          <p><strong>Answer:</strong></p>
+          <p>jQuery is a fast, small, and feature-rich JavaScript library that simplifies HTML document traversal, event handling, animation, and Ajax interactions for rapid web development.</p>
+          <h3>Uses of jQuery</h3>
+          <ol>
+            <li>Manipulating and updating HTML elements dynamically.</li>
+            <li>Handling user interactions like clicks, form submissions, and keyboard events.</li>
+            <li>Creating animations and visual effects on web pages.</li>
+            <li>Simplifying Ajax requests to load or send data without page reload.</li>
+            <li>Enhancing website navigation (like dropdown menus, sliders).</li>
+            <li>Validating form inputs before submission.</li>
+            <li>Developing interactive user interfaces quickly.</li>
+          </ol>
+        </div>
+      </li>
+      <li>
+        <strong>What is PHP? Explain its uses and advantages.</strong>
+        <div class="answer">
+          <p><strong>Answer:</strong></p>
+          <p>PHP (Hypertext Preprocessor) is a popular open-source server-side scripting language designed for web development to create dynamic and interactive web pages.</p>
+
+          <h3>Uses of PHP</h3>
+          <ul>
+            <li>Generating dynamic page content.</li>
+            <li>Handling form data and user input.</li>
+            <li>Managing sessions and cookies.</li>
+            <li>Interacting with databases like MySQL.</li>
+            <li>Building content management systems (e.g., WordPress).</li>
+            <li>Developing e-commerce platforms.</li>
+            <li>Creating RESTful APIs and web services.</li>
+          </ul>
+
+          <h3>Advantages of PHP</h3>
+          <ul>
+            <li>Easy to learn and use with a large community.</li>
+            <li>Platform-independent and runs on various servers.</li>
+            <li>Integrates well with many databases.</li>
+            <li>Fast execution on the server side.</li>
+            <li>Extensive libraries and frameworks available.</li>
+            <li>Supports wide range of web protocols.</li>
+            <li>Open-source and free to use.</li>
+          </ul>
+        </div>
+      </li>
   <!--Bhusan End-->
   <!--Areej Start-->
 <li>
