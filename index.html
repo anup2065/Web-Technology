@@ -532,28 +532,650 @@ Email: <input type="text" name="email"><br>
 </div> </li>
   <!--Diwash End-->
   <!--Aayush Adhikari Start-->
-      <li><strong>Define SQL. Write down the SQL queries to create a database, create a table in the database, insert data in the table, and query the data to display it.</strong></li>
-      <li><strong>Write a JavaScript program to calculate the simple interest using principal, rate, and time.</strong></li>
-      <li><strong>Write a JavaScript program to convert temperatures from Fahrenheit to Celsius.</strong></li>
-      <li><strong>Write a JavaScript program to check whether the given number is positive or negative.</strong></li>
-      <li><strong>Write a JavaScript program to check if a given number is even or odd.</strong></li>
-      <li><strong>Write a JavaScript program to display the largest among three given numbers.</strong></li>
+   <li>
+<strong>Define SQL. Write down the SQL queries to create a database, create a table in the database, insert data in the table, and query the data to display it.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<p><strong>SQL (Structured Query Language)</strong> is a standard language for storing, manipulating, and retrieving data in relational databases. It is used to communicate with a database and perform tasks like creating databases, tables, inserting, updating, deleting, and querying data.</p>
+<p><strong>SQL Queries:</strong></p>
+<p><strong>1. Create a Database:</strong></p>
+<pre><code>CREATE DATABASE my_new_database;</code></pre>
+<p><strong>Explanation:</strong> This SQL statement creates a new database named <code>my_new_database</code>. Databases act as containers for tables and other database objects.</p>
+
+<p><strong>2. Create a Table in the Database:</strong></p>
+<pre><code>USE my_new_database;
+
+CREATE TABLE Students (
+StudentID INT PRIMARY KEY AUTO_INCREMENT,
+FirstName VARCHAR(50) NOT NULL,
+LastName VARCHAR(50) NOT NULL,
+Age INT,
+EnrollmentDate DATE
+);</code></pre>
+<p><strong>Explanation:</strong> First, <code>USE my_new_database;</code> selects the database to work with. Then, this statement creates a table named <code>Students</code> within <code>my_new_database</code>. It defines columns like <code>StudentID</code> (primary key, auto-incrementing), <code>FirstName</code>, <code>LastName</code>, <code>Age</code>, and <code>EnrollmentDate</code> with their respective data types and constraints.</p>
+
+<p><strong>3. Insert Data into the Table:</strong></p>
+<pre><code>INSERT INTO Students (FirstName, LastName, Age, EnrollmentDate)
+
+VALUES ('Alice', 'Smith', 20, '2023-09-01');
+
+INSERT INTO Students (FirstName, LastName, Age, EnrollmentDate)
+VALUES ('Bob', 'Johnson', 22, '2022-01-15');</code></pre>
+<p><strong>Explanation:</strong> These statements insert new rows (records) into the <code>Students</code> table. For each row, values are provided for the specified columns (<code>FirstName</code>, <code>LastName</code>, <code>Age</code>, <code>EnrollmentDate</code>).</p>
+
+<p><strong>4. Query the Data to Display It:</strong></p>
+<pre><code>SELECT * FROM Students;</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>+-----------+-----------+----------+-----+----------------+
+
+| StudentID | FirstName | LastName | Age | EnrollmentDate |
++-----------+-----------+----------+-----+----------------+
+|         1 | Alice     | Smith    |  20 | 2023-09-01     |
+|         2 | Bob       | Johnson  |  22 | 2022-01-15     |
++-----------+-----------+----------+-----+----------------+</code></pre>
+<p><strong>Explanation:</strong> This <code>SELECT</code> statement retrieves all columns (<code>*</code>) and all rows from the <code>Students</code> table, effectively displaying all the data currently stored in it.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to calculate the simple interest using principal, rate, and time.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function calculateSimpleInterest(principal, rate, time) {
+// Simple Interest (SI) = (P * R * T) / 100
+const simpleInterest = (principal * rate * time) / 100;
+return simpleInterest;
+}
+
+// Example Usage:
+const principalAmount = 10000; // Principal amount
+const interestRate = 5;      // Annual interest rate (in percentage)
+const timePeriod = 2;        // Time period (in years)
+
+const si = calculateSimpleInterest(principalAmount, interestRate, timePeriod);
+console.log(Principal: 
+
+{principalAmount}); console.log(Rate: ${interestRate}%); console.log(Time: ${timePeriod} years); console.log(Simple Interest:
+{si});</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Principal: $10000
+Rate: 5%
+Time: 2 years
+Simple Interest: $1000</code></pre>
+<p><strong>Explanation:</strong> This JavaScript function <code>calculateSimpleInterest</code> takes three arguments: <code>principal</code>, <code>rate</code>, and <code>time</code>. It applies the formula for simple interest (SI=(P
+timesR
+timesT)/100) and returns the calculated value. The example demonstrates how to call the function and display the result.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to convert temperatures from Fahrenheit to Celsius.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function fahrenheitToCelsius(fahrenheit) {
+// Celsius = (Fahrenheit - 32) * 5/9
+const celsius = (fahrenheit - 32) * (5 / 9);
+return celsius;
+}
+
+// Example Usage:
+const fahrenheitTemp1 = 68;
+const celsiusTemp1 = fahrenheitToCelsius(fahrenheitTemp1);
+console.log(${fahrenheitTemp1}°F is equal to ${celsiusTemp1.toFixed(2)}°C);
+
+const fahrenheitTemp2 = 32;
+const celsiusTemp2 = fahrenheitToCelsius(fahrenheitTemp2);
+console.log(${fahrenheitTemp2}°F is equal to ${celsiusTemp2.toFixed(2)}°C);
+
+const fahrenheitTemp3 = 212;
+const celsiusTemp3 = fahrenheitToCelsius(fahrenheitTemp3);
+console.log(${fahrenheitTemp3}°F is equal to ${celsiusTemp3.toFixed(2)}°C);</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>68°F is equal to 20.00°C
+32°F is equal to 0.00°C
+212°F is equal to 100.00°C</code></pre>
+<p><strong>Explanation:</strong> The <code>fahrenheitToCelsius</code> function takes a temperature in Fahrenheit as input. It uses the standard conversion formula (C=(F−32)
+times5/9) to calculate the equivalent Celsius temperature and returns it. The <code>.toFixed(2)</code> method is used to format the output to two decimal places.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to check whether the given number is positive or negative.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function checkPositiveNegative(number) {
+if (number > 0) {
+return ${number} is a positive number.;
+} else if (number < 0) {
+return ${number} is a negative number.;
+} else {
+return ${number} is neither positive nor negative (it&#39;s zero).;
+}
+}
+
+// Example Usage:
+console.log(checkPositiveNegative(10));
+console.log(checkPositiveNegative(-5));
+console.log(checkPositiveNegative(0));
+console.log(checkPositiveNegative(100.5));</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>10 is a positive number.
+-5 is a negative number.
+0 is neither positive nor negative (it's zero).
+100.5 is a positive number.</code></pre>
+<p><strong>Explanation:</strong> This JavaScript function <code>checkPositiveNegative</code> takes a number as input. It uses an <code>if-else if-else</code> structure to determine if the number is greater than zero (positive), less than zero (negative), or equal to zero. It then returns an appropriate string indicating the result.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to check if a given number is even or odd.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function checkEvenOrOdd(number) {
+// The modulo operator (%) returns the remainder of a division.
+// If a number divided by 2 has a remainder of 0, it's even.
+// Otherwise, it's odd.
+if (number % 2 === 0) {
+return ${number} is an even number.;
+} else {
+return ${number} is an odd number.;
+}
+}
+
+// Example Usage:
+console.log(checkEvenOrOdd(4));
+console.log(checkEvenOrOdd(7));
+console.log(checkEvenOrOdd(0));
+console.log(checkEvenOrOdd(-2));
+console.log(checkEvenOrOdd(-3));</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>4 is an even number.
+7 is an odd number.
+0 is an even number.
+-2 is an even number.
+-3 is an odd number.</code></pre>
+<p><strong>Explanation:</strong> The <code>checkEvenOrOdd</code> function determines if a number is even or odd using the modulo operator (<code>%</code>). If the number divided by 2 has a remainder of 0, it's even; otherwise, it's odd. The function returns a descriptive string.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to display the largest among three given numbers.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function findLargestAmongThree(num1, num2, num3) {
+let largest;
+
+if (num1 >= num2 && num1 >= num3) {
+largest = num1;
+} else if (num2 >= num1 && num2 >= num3) {
+largest = num2;
+} else {
+largest = num3;
+}
+return The largest number among ${num1}, ${num2}, and ${num3} is: ${largest};
+}
+
+// Example Usage:
+console.log(findLargestAmongThree(10, 25, 15));
+console.log(findLargestAmongThree(50, 10, 30));
+console.log(findLargestAmongThree(5, 8, 12));
+console.log(findLargestAmongThree(-10, -5, -20)); // Handles negative numbers
+console.log(findLargestAmongThree(7, 7, 3));    // Handles equal numbers</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>The largest number among 10, 25, and 15 is: 25
+The largest number among 50, 10, and 30 is: 50
+The largest number among 5, 8, and 12 is: 12
+The largest number among -10, -5, and -20 is: -5
+The largest number among 7, 7, and 3 is: 7</code></pre>
+<p><strong>Explanation:</strong> The <code>findLargestAmongThree</code> function takes three numbers as input. It uses a series of <code>if-else if-else</code> statements to compare the numbers. It checks if the first number is the largest, then the second, and finally defaults to the third if neither of the first two is the largest. The function then returns a string indicating the largest number found.</p>
+
+</div>
+</li>
   <!--Aayush Adhikari End-->
   <!--Aayush Jha start-->
-      <li><strong>Write a JavaScript program to display the reverse of a given number.</strong></li>
-      <li><strong>Write a JavaScript program to check if a given number is a palindrome or not.</strong></li>
-      <li><strong>Write a JavaScript program to print the largest and smallest numbers among 10 elements of an array.</strong></li>
-      <li><strong>Write a JavaScript program to sort the data of an array.</strong></li>
-      <li><strong>Write a JavaScript program to reverse a given string.</strong></li>
-      <li><strong>Write a JavaScript program to count the number of vowels present in the given string.</strong></li>
+<li>
+<strong>Write a JavaScript program to display the reverse of a given number.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function reverseNumber(number) {
+let reversedNumber = 0;
+let isNegative = number < 0;
+number = Math.abs(number); // Work with absolute value
+
+while (number > 0) {
+const digit = number % 10; // Get the last digit
+reversedNumber = reversedNumber * 10 + digit; // Append to reversed number
+number = Math.floor(number / 10); // Remove the last digit
+}
+
+return isNegative ? -reversedNumber : reversedNumber; // Apply sign back
+}
+
+// Example Usage:
+console.log(Reverse of 12345 is: ${reverseNumber(12345)});
+console.log(Reverse of 9870 is: ${reverseNumber(9870)});
+console.log(Reverse of 100 is: ${reverseNumber(100)});
+console.log(Reverse of -456 is: ${reverseNumber(-456)});
+console.log(Reverse of 0 is: ${reverseNumber(0)});</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Reverse of 12345 is: 54321
+Reverse of 9870 is: 789
+Reverse of 100 is: 1
+Reverse of -456 is: -654
+Reverse of 0 is: 0</code></pre>
+<p><strong>Explanation:</strong> This function <code>reverseNumber</code> takes an integer. It iteratively extracts the last digit using the modulo operator (), builds the reversed number by multiplying the current reversed number by 10 and adding the digit, and then removes the last digit from the original number using Math.floor(number / 10). It also handles negative numbers by reversing the absolute value and then reapplying the negative sign.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to check if a given number is a palindrome or not.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function isPalindromeNumber(number) {
+if (number < 0) {
+return false; // Negative numbers cannot be palindromes
+}
+if (number === 0) {
+return true; // 0 is considered a palindrome
+}
+
+let originalNumber = number;
+let reversedNumber = 0;
+
+while (number > 0) {
+const digit = number % 10;
+reversedNumber = reversedNumber * 10 + digit;
+number = Math.floor(number / 10);
+}
+
+return originalNumber === reversedNumber;
+}
+
+// Example Usage:
+console.log(121 is a palindrome: ${isPalindromeNumber(121)});
+console.log(12321 is a palindrome: ${isPalindromeNumber(12321)});
+console.log(12345 is a palindrome: ${isPalindromeNumber(12345)});
+console.log(1001 is a palindrome: ${isPalindromeNumber(1001)});
+console.log(-121 is a palindrome: ${isPalindromeNumber(-121)});
+console.log(0 is a palindrome: ${isPalindromeNumber(0)});</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>121 is a palindrome: true
+12321 is a palindrome: true
+12345 is a palindrome: false
+1001 is a palindrome: true
+-121 is a palindrome: false
+0 is a palindrome: true</code></pre>
+<p><strong>Explanation:</strong> The <code>isPalindromeNumber</code> function first handles edge cases for negative numbers and zero. For positive numbers, it reverses the input number using a while loop (similar to the reverseNumber function). Finally, it compares the original number with its reversed counterpart. If they are equal, the number is a palindrome.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to print the largest and smallest numbers among 10 elements of an array.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function findLargestAndSmallest(arr) {
+if (arr.length === 0) {
+return "Array is empty.";
+}
+
+let largest = arr[0];
+let smallest = arr[0];
+
+for (let i = 1; i < arr.length; i++) {
+if (arr[i] > largest) {
+largest = arr[i];
+}
+if (arr[i] < smallest) {
+smallest = arr[i];
+}
+}
+return Array: [${arr.join(', ')}]\nLargest: ${largest}, Smallest: ${smallest};
+}
+
+// Example Usage:
+const numbers1 = [10, 5, 20, 8, 15, 30, 2, 25, 12, 7];
+console.log(findLargestAndSmallest(numbers1));
+
+const numbers2 = [-1, -5, -10, 0, -2];
+console.log(findLargestAndSmallest(numbers2));
+
+const numbers3 = [7];
+console.log(findLargestAndSmallest(numbers3));
+
+const emptyArray = [];
+console.log(findLargestAndSmallest(emptyArray));</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Array: [10, 5, 20, 8, 15, 30, 2, 25, 12, 7]
+Largest: 30, Smallest: 2
+Array: [-1, -5, -10, 0, -2]
+Largest: 0, Smallest: -10
+Array: [7]
+Largest: 7, Smallest: 7
+Array is empty.</code></pre>
+<p><strong>Explanation:</strong> The <code>findLargestAndSmallest</code> function takes an array as input. It initializes largest and smallest with the first element of the array. Then, it iterates through the rest of the array, updating largest if a larger element is found and smallest if a smaller element is found. It also includes a check for an empty array.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to sort the data of an array.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function sortArrayAscending(arr) {
+// Create a copy of the array to avoid modifying the original
+const sortedArr = [...arr];
+sortedArr.sort((a, b) => a - b); // Sorts numerically in ascending order
+return sortedArr;
+}
+
+function sortArrayDescending(arr) {
+const sortedArr = [...arr];
+sortedArr.sort((a, b) => b - a); // Sorts numerically in descending order
+return sortedArr;
+}
+
+// Example Usage:
+const unsortedNumbers = [3, 1, 4, 1, 5, 9, 2, 6];
+console.log(Original array: [${unsortedNumbers.join(', ')}]);
+
+const ascendingSorted = sortArrayAscending(unsortedNumbers);
+console.log(Sorted (Ascending): [${ascendingSorted.join(', ')}]);
+
+const descendingSorted = sortArrayDescending(unsortedNumbers);
+console.log(Sorted (Descending): [${descendingSorted.join(', ')}]);
+
+const unsortedStrings = ["banana", "apple", "cherry", "date"];
+console.log(\nOriginal strings: [${unsortedStrings.join(', ')}]);
+console.log(Sorted strings (Ascending): [${sortArrayAscending(unsortedStrings).join(', ')}]); // Default sort for strings is lexicographical</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Original array: [3, 1, 4, 1, 5, 9, 2, 6]
+Sorted (Ascending): [1, 1, 2, 3, 4, 5, 6, 9]
+Sorted (Descending): [9, 6, 5, 4, 3, 2, 1, 1]
+
+Original strings: [banana, apple, cherry, date]
+Sorted strings (Ascending): [apple, banana, cherry, date]</code></pre>
+<p><strong>Explanation:</strong> JavaScript's built-in sort() method is used here. For numerical sorting, a compare function (a, b) => a - b is passed to sort in ascending order, and (a, b) => b - a for descending order. For strings, sort() by default sorts lexicographically. We create a copy of the array ([...arr]) to ensure the original array is not modified.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to reverse a given string.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function reverseString(str) {
+// Convert string to an array of characters, reverse the array, then join back to a string
+return str.split('').reverse().join('');
+}
+
+// Example Usage:
+console.log(Original: "hello", Reversed: "${reverseString("hello")}");
+console.log(Original: "JavaScript", Reversed: "${reverseString("JavaScript")}");
+console.log(Original: "madam", Reversed: "${reverseString("madam")}");
+console.log(Original: "", Reversed: "${reverseString("")}");
+console.log(Original: "a", Reversed: "${reverseString("a")}");</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Original: "hello", Reversed: "olleh"
+Original: "JavaScript", Reversed: "tpircSavaJ"
+Original: "madam", Reversed: "madam"
+Original: "", Reversed: ""
+Original: "a", Reversed: "a"</code></pre>
+<p><strong>Explanation:</strong> This function <code>reverseString</code> leverages three common string/array methods:
+1.  split(''): Converts the string into an array of individual characters.
+2.  reverse(): Reverses the order of elements in the array.
+3.  join(''): Joins the elements of the array back into a single string.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a JavaScript program to count the number of vowels present in the given string.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function countVowels(str) {
+const vowels = "aeiouAEIOU"; // Define all vowels (both lowercase and uppercase)
+let count = 0;
+
+for (let i = 0; i < str.length; i++) {
+const char = str[i];
+// Check if the current character is present in the vowels string
+if (vowels.includes(char)) {
+count++;
+}
+}
+return count;
+}
+
+// Example Usage:
+console.log(Number of vowels in "hello world": ${countVowels("hello world")});
+console.log(Number of vowels in "JavaScript Programming": ${countVowels("JavaScript Programming")});
+console.log(Number of vowels in "Rhythm": ${countVowels("Rhythm")});
+console.log(Number of vowels in "AEIOU": ${countVowels("AEIOU")});
+console.log(Number of vowels in "": ${countVowels("")});</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Number of vowels in "hello world": 3
+Number of vowels in "JavaScript Programming": 6
+Number of vowels in "Rhythm": 0
+Number of vowels in "AEIOU": 5
+Number of vowels in "": 0</code></pre>
+<p><strong>Explanation:</strong> The <code>countVowels</code> function initializes a vowels string containing both lowercase and uppercase vowels. It then iterates through each character of the input string. For each character, it checks if it's included in the vowels string using vowels.includes(char). If it is, a counter is incremented. Finally, the total count of vowels is returned.</p>
+
+</div>
+</li>
   <!--Aayush Jha end-->
   <!--Aayush Shah start-->
-      <li><strong>Write a JavaScript program to calculate the factorial of a number using the concept of recursion.</strong></li>
-      <li><strong>Write a PHP program to swap the values of two variables.</strong></li>
-      <li><strong>Write a PHP program to calculate the sum of 1 to 10.</strong></li>
-      <li><strong>Write a PHP program to calculate the sum of all even numbers up to 100.</strong></li>
-      <li><strong>Write a PHP program to display the prime numbers less than 100.</strong></li>
-      <li><strong>How can we use array in PHP? Demonstrate with a suitable example.</strong></li>
+<li>
+<strong>Write a JavaScript program to calculate the factorial of a number using the concept of recursion.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>function factorial(n) {
+// Base case: if n is 0 or 1, factorial is 1
+if (n === 0 || n === 1) {
+return 1;
+}
+// Recursive case: n * factorial of (n-1)
+return n * factorial(n - 1);
+}
+
+// Example Usage:
+console.log(Factorial of 5 is: ${factorial(5)});   // Expected: 120
+console.log(Factorial of 0 is: ${factorial(0)});   // Expected: 1
+console.log(Factorial of 7 is: ${factorial(7)});   // Expected: 5040
+console.log(Factorial of 1 is: ${factorial(1)});   // Expected: 1
+// Note: Factorial is typically defined for non-negative integers.
+// Handling negative numbers would require additional logic.</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Factorial of 5 is: 120
+Factorial of 0 is: 1
+Factorial of 7 is: 5040
+Factorial of 1 is: 1</code></pre>
+<p><strong>Explanation:</strong> This JavaScript function factorial calculates the factorial of a given non-negative integer using recursion. The base case is when n is 0 or 1, in which case it returns 1. For any other positive integer n, it recursively calls itself with n−1 and multiplies the result by n. This continues until the base case is reached, unwinding the calls to compute the final factorial.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a PHP program to swap the values of two variables.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>&lt;?php
+// Method 1: Using a temporary variable
+$a = 10;
+$b = 20;
+
+echo "Before swapping (Method 1): a = $a, b = $b<br>";
+
+$temp = $a;
+$a = $b;
+$b = $temp;
+
+echo "After swapping (Method 1): a = $a, b = $b<br><br>";
+
+// Method 2: Without using a temporary variable (arithmetic operations)
+$x = 5;
+$y = 8;
+
+echo "Before swapping (Method 2): x = $x, y = $y<br>";
+
+$x = $x + $y; // x becomes sum of original x and y
+$y = $x - $y; // y becomes original x
+$x = $x - $y; // x becomes original y
+
+echo "After swapping (Method 2): x = $x, y = $y<br>";
+?></code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Before swapping (Method 1): a = 10, b = 20
+After swapping (Method 1): a = 20, b = 10
+
+Before swapping (Method 2): x = 5, y = 8
+After swapping (Method 2): x = 8, y = 5</code></pre>
+<p><strong>Explanation:</strong> This PHP program demonstrates two common methods for swapping the values of two variables. Method 1 uses a temporary variable ($temp) to hold one value while the swap occurs. Method 2 performs the swap using arithmetic operations (addition and subtraction) without needing an extra variable, which can be useful in certain scenarios.</p>
+
+</div>
+</li>
+
+<li>
+<strong>Write a PHP program to calculate the sum of 1 to 10.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>&lt;?php
+$sum = 0;
+for ($i = 1; $i &lt;= 10; $i++) {
+$sum += $i; // Add current number to sum
+}
+echo "The sum of numbers from 1 to 10 is: " . $sum;
+?&gt;</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>The sum of numbers from 1 to 10 is: 55</code></pre>
+<p><strong>Explanation:</strong> This PHP script initializes a variable $sum to 0. It then uses a for loop that iterates from 1 to 10. In each iteration, the current value of $i is added to $sum. After the loop completes, $sum holds the total sum of numbers from 1 to 10, which is then displayed.</p>
+</div>
+</li>
+
+<li>
+<strong>Write a PHP program to calculate the sum of all even numbers up to 100.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>&lt;?php
+$sumOfEvens = 0;
+for ($i = 2; $i &lt;= 100; $i += 2) {
+$sumOfEvens += $i; // Add current even number to sum
+}
+echo "The sum of all even numbers up to 100 is: " . $sumOfEvens;
+?&gt;</code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>The sum of all even numbers up to 100 is: 2550</code></pre>
+<p><strong>Explanation:</strong> This PHP program calculates the sum of all even numbers from 2 to 100. It initializes $sumOfEvens to 0. The for loop starts from 2, increments by 2 in each step (ensuring only even numbers are processed), and continues until $i reaches 100. Each even number is added to $sumOfEvens, and the final sum is printed.</p>
+</div>
+</li>
+
+<li>
+<strong>Write a PHP program to display the prime numbers less than 100.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<pre><code>&lt;?php
+function isPrime($num) {
+if ($num &lt;= 1) {
+return false; // Numbers less than or equal to 1 are not prime
+}
+for ($i = 2; $i &lt;= sqrt($num); $i++) {
+if ($num % $i == 0) {
+return false; // If divisible by any number, it's not prime
+}
+}
+return true; // If no divisors found, it's prime
+}
+
+echo "Prime numbers less than 100:<br>";
+for ($i = 2; $i < 100; $i++) {
+if (isPrime($i)) {
+echo $i . " "; // Display prime number
+}
+}
+?></code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code>Prime numbers less than 100:
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 </code></pre>
+<p><strong>Explanation:</strong> This PHP program defines a helper function isPrime($num) that checks if a given number is prime. A number is prime if it's greater than 1 and has no positive divisors other than 1 and itself. The isPrime function iterates from 2 up to the square root of the number to check for divisibility. The main part of the script then loops from 2 to 99, calling isPrime for each number and displaying it if it's prime.</p>
+
+</div>
+</li>
+
+<li>
+<strong>How can we use array in PHP? Demonstrate with a suitable example.</strong>
+<div class="answer">
+<p><strong>Answer:</strong></p>
+<p>In PHP, an <strong>array</strong> is a special variable that can hold more than one value at a time. These values can be of different data types. PHP supports two main types of arrays: indexed arrays (with numeric keys) and associative arrays (with named keys).</p>
+<p><strong>Example:</strong></p>
+<pre><code>&lt;?php
+// 1. Indexed Array
+echo "&lt;h3&gt;Indexed Array Example:&lt;/h3&gt;";
+$fruits = array("Apple", "Banana", "Cherry"); // Creating an indexed array
+
+echo "My favorite fruit is: " . $fruits[0] . "<br>"; // Accessing by index
+echo "All fruits:<br>";
+foreach ($fruits as $fruit) {
+echo $fruit . "<br>";
+}
+
+// 2. Associative Array
+echo "<h3>Associative Array Example:</h3>";
+$student = array(
+"name" => "Alice",
+"age" => 20,
+"major" => "Computer Science"
+); // Creating an associative array
+
+echo "Student Name: " . $student["name"] . "<br>"; // Accessing by key
+echo "Student Details:<br>";
+foreach ($student as $key => $value) {
+echo $key . ": " . $value . "<br>";
+}
+
+// 3. Multidimensional Array (Array of Arrays)
+echo "<h3>Multidimensional Array Example:</h3>";
+$students_data = array(
+array("John", 18, "Math"),
+array("Jane", 19, "Physics"),
+array("Mike", 20, "Chemistry")
+);
+
+echo "First student's name: " . $students_data[0][0] . "<br>";
+echo "Second student's age: " . $students_data[1][1] . "<br>";
+?></code></pre>
+<p><strong>Sample Output:</strong></p>
+<pre><code><h3>Indexed Array Example:</h3>
+My favorite fruit is: Apple
+All fruits:
+Apple
+Banana
+Cherry
+
+<h3>Associative Array Example:</h3>
+Student Name: Alice
+Student Details:
+name: Alice
+age: 20
+major: Computer Science
+
+<h3>Multidimensional Array Example:</h3>
+First student's name: John
+Second student's age: 19</code></pre>
+<p><strong>Explanation:</strong> This example demonstrates how to declare, access, and iterate through different types of arrays in PHP.
+<ul>
+<li><strong>Indexed Arrays:</strong> Values are stored and accessed using numerical indices (starting from 0). The foreach loop is commonly used to iterate over elements.</li>
+<li><strong>Associative Arrays:</strong> Values are stored and accessed using named keys (strings). This is useful for representing data with meaningful labels.</li>
+<li><strong>Multidimensional Arrays:</strong> Arrays containing other arrays, allowing for complex data structures like tables or matrices. Elements are accessed using multiple indices.</li>
+</ul>
+Arrays are fundamental for organizing and managing collections of data in PHP programs.</p>
+</div>
+</li>
   <!--Aayush Shah start-->
   <!--Avisek Start-->
       <li><strong>Write a PHP program to print the largest and smallest numbers among 10 elements of an array.</strong></li>
