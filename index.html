@@ -391,12 +391,145 @@ displayDateTime();
 </li>
   <!--Areej End-->
   <!--Diwash Start-->
-      <li><strong>Write a PHP script to connect the MySQL database and demonstrate data insertion in table product (id, product_name, price, expire_date, company name).</strong></li>
-      <li><strong>Write a PHP program to connect a database name 'employee'.</strong></li>
-      <li><strong>Write a PHP program to insert a record in a database name 'employee' with fields id, name and salary.</strong></li>
-      <li><strong>Write a PHP program to display all records (according to previous question 4 and 5) of employee's ward who are securing salary greater than Rs. 45,000.</strong></li>
-      <li><strong>Write a PHP program to delete a record of an employee whose salary is less than Rs. 30,000.</strong></li>
-      <li><strong>Explain form validation using JavaScript with the example.</strong></li>
+     <li> <strong>Write a PHP script to connect the MySQL database and demonstrate data insertion in table product (id, product_name, price, expire_date, company name).</strong> <div class="answer"> <p><strong>Answer:</strong></p> <p>To insert data into a MySQL database table using PHP, we must first connect to the database, then write an SQL INSERT query and execute it using PHP's <code>mysqli</code> functions.</p> <pre><code>&lt;?php $servername = "localhost"; $username = "root"; $password = ""; $dbname = "store";
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check if connection was successful
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+// Insert data into product table
+$sql = "INSERT INTO product (id, product_name, price, expire_date, company_name)
+VALUES (1, 'Toothpaste', 120.50, '2026-06-30', 'Colgate')";
+
+if ($conn->query($sql) === TRUE) {
+echo "Product inserted successfully.";
+} else {
+echo "Error inserting product: " . $conn->error;
+}
+
+$conn->close();
+?></code></pre>
+<p><strong>Explanation:</strong> This script connects to a database named <code>store</code>. Then it inserts a record into the <code>product</code> table using an SQL statement. After execution, it checks for errors and displays an appropriate message. The function <code>$conn->close()</code> is used to close the database connection after the task is done.</p>
+
+</div> </li>
+<li> <strong>Write a PHP program to connect a database name 'employee'.</strong> <div class="answer"> <p><strong>Answer:</strong></p> <pre><code>&lt;?php $servername = "localhost"; $username = "root"; $password = ""; $dbname = "employee";
+// Connect to the MySQL database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+} else {
+echo "Connected to 'employee' database successfully.";
+}
+
+$conn->close();
+?></code></pre>
+<p><strong>Explanation:</strong> This PHP script creates a connection to a database named <code>employee</code> using <code>mysqli</code>. It checks whether the connection is successful and prints a message accordingly. This is a basic step required before performing any database operations like insert, update, or delete.</p>
+
+</div> </li>
+<li> <strong>Write a PHP program to insert a record in a database name 'employee' with fields id, name and salary.</strong> <div class="answer"> <p><strong>Answer:</strong></p> <pre><code>&lt;?php $servername = "localhost"; $username = "root"; $password = ""; $dbname = "employee";
+// Connect to the database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+// Insert a new employee record
+$sql = "INSERT INTO employee (id, name, salary) VALUES (1, 'Sita Karki', 52000)";
+
+if ($conn->query($sql) === TRUE) {
+echo "Employee record inserted successfully.";
+} else {
+echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?></code></pre>
+<p><strong>Explanation:</strong> This script adds a new employee with id <code>1</code>, name <code>'Sita Karki'</code> and salary <code>52000</code> into the <code>employee</code> table. This is useful when new staff are added to the system.</p>
+
+</div> </li>
+<li> <strong>Write a PHP program to display all records (according to previous question 4 and 5) of employee's ward who are securing salary greater than Rs. 45,000.</strong> <div class="answer"> <p><strong>Answer:</strong></p> <pre><code>&lt;?php $servername = "localhost"; $username = "root"; $password = ""; $dbname = "employee";
+// Connect to database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+// Retrieve employees with salary > 45000
+$sql = "SELECT * FROM employee WHERE salary > 45000";
+$result = $conn->query($sql);
+
+// Check and display results
+if ($result->num_rows > 0) {
+while ($row = $result->fetch_assoc()) {
+echo "ID: " . $row["id"] . " - Name: " . $row["name"] . " - Salary: " . $row["salary"] . "<br>";
+}
+} else {
+echo "No employees found with salary greater than 45000.";
+}
+
+$conn->close();
+?></code></pre>
+<p><strong>Explanation:</strong> This program filters and displays only those employees whose salary is more than Rs. 45,000. It uses SQL <code>SELECT</code> with a condition and displays the data using <code>while</code> loop and <code>fetch_assoc()</code>.</p>
+
+</div> </li>
+<li> <strong>Write a PHP program to delete a record of an employee whose salary is less than Rs. 30,000.</strong> <div class="answer"> <p><strong>Answer:</strong></p> <pre><code>&lt;?php $servername = "localhost"; $username = "root"; $password = ""; $dbname = "employee";
+// Connect to database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+// Delete employees with salary < 30000
+$sql = "DELETE FROM employee WHERE salary < 30000";
+
+if ($conn->query($sql) === TRUE) {
+echo "Employee(s) with salary less than 30000 deleted successfully.";
+} else {
+echo "Error deleting record: " . $conn->error;
+}
+
+$conn->close();
+?></code></pre>
+<p><strong>Explanation:</strong> This PHP script removes all employee records whose salary is less than Rs. 30,000 using the SQL <code>DELETE</code> command. It's useful for maintaining only relevant data.</p>
+
+</div> </li>
+<li> <strong>Explain form validation using JavaScript with the example.</strong> <div class="answer"> <p><strong>Answer:</strong></p> <p>Form validation using JavaScript ensures that the user has entered required and correct data before submitting the form. It improves user experience and reduces server load.</p> <p><strong>Example:</strong></p> <pre><code>&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;script&gt; function validateForm() { let name = document.forms["myForm"]["username"].value; let email = document.forms["myForm"]["email"].value;
+if (name == "") {
+alert("Name must be filled out");
+return false;
+}
+if (!email.includes("@")) {
+alert("Enter a valid email address");
+return false;
+}
+}
+</script>
+</head>
+
+<body>
+
+<form name="myForm" onsubmit="return validateForm()">
+Name: <input type="text" name="username"><br>
+Email: <input type="text" name="email"><br>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html></code></pre>
+<p><strong>Explanation:</strong> The <code>validateForm()</code> function checks if the name field is empty or if the email doesn't contain '@'. If any condition fails, it displays an alert and stops the form from being submitted. This prevents incorrect data from being sent to the server.</p>
+
+</div> </li>
   <!--Diwash End-->
   <!--Aayush Adhikari Start-->
       <li><strong>Define SQL. Write down the SQL queries to create a database, create a table in the database, insert data in the table, and query the data to display it.</strong></li>
